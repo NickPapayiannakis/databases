@@ -4,10 +4,11 @@ var db = require('../db');
 
 
 module.exports = {
+
   messages: {
-    // Retrieves all messages from 'messages' table.
-    get: function (query, queryArgs, callback) {
-      db.dbConnection.query(query, queryArgs, function (error, results, fields) {
+    // Retrieves all messages FROM 'messages' table.
+    get: function (callback) {
+      db.dbConnection.query('SELECT user, message, room FROM messages', function (error, results, fields) {
         if (error){throw error};
 
         callback(results);
@@ -17,8 +18,8 @@ module.exports = {
     },
 
     // Insert a message into the 'messages' table.
-    post: function (query, queryArgs) {
-      db.dbConnection.query(query, queryArgs, function (error, results, fields) {
+    post: function (queryArgs) {
+      db.dbConnection.query('INSERT INTO messages SET ?', queryArgs, function (error, results, fields) {
         if (error){throw error};
 
         // Implement fields argument at future time.
@@ -27,9 +28,9 @@ module.exports = {
   },
 
   users: {
-    // Retrieves all messages from 'users' table.
-    get: function (query, queryArgs, callback) {
-      db.dbConnection.query(query, queryArgs,  function (error, results, fields) {
+    // Retrieves all messages FROM 'users' table.
+    get: function (callback) {
+      db.dbConnection.query('SELECT * user FROM users, queryArgs',  function (error, results, fields) {
         if (error){throw error};
 
         callback(results);
@@ -37,9 +38,9 @@ module.exports = {
         // Implement fields argument at future time.
       });
     },
-    // Insert a message into 'users' table
-    post: function (query, queryArgs) {
-      db.dbConnection.query(query, queryArgs, function (error, results, fields) {
+    // INSERT a message INTO 'users' table
+    post: function (queryArgs) {
+      db.dbConnection.query('INSERT INTO users SET ?', queryArgs, function (error, results, fields) {
         if (error){throw error};
 
         // Implement fields argument at future time.
@@ -49,8 +50,14 @@ module.exports = {
 };
 
 
-// insert into employee
+// INSERT INTO employee
 //   (first, last, age, address, city, state)
 //   values ('Luke', 'Duke', 45, '2130 Boars Nest',
 //           'Hazard Co', 'Georgia');
+
+// connection.query('INSERT INTO posts SET ?', {title: 'test'}, function(err, result) {
+//   if (err) throw err;
+
+//   console.log(result.insertId);
+// });
 

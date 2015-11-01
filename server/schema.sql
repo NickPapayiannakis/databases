@@ -6,7 +6,7 @@ CREATE TABLE messages (
   MID int,
   time date,
   room varchar(50),
-  UID int,
+  user varchar(30),
   message varchar(140)
 );
 

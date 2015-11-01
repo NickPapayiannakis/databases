@@ -1,7 +1,7 @@
 var Messages = Backbone.Collection.extend({
 
   model: Message,
-  url : 'https://api.parse.com/1/classes/chatterbox/',
+  url : 'http://127.0.0.1:20000/classes/messages',
 
   load: function(){
     this.fetch({data: {order: '-createdAt'}});
