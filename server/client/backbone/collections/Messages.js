@@ -4,10 +4,12 @@ var Messages = Backbone.Collection.extend({
   url : 'http://127.0.0.1:20000/classes/messages',
 
   load: function(){
-    this.fetch({data: {order: '-createdAt'}});
+    this.fetch();
   },
 
   parse: function(response, options) {
-    return response.results.reverse();
+    return response;
   }
 });
+
+//{data: {order: '-createdAt'}}

@@ -1,12 +1,6 @@
 var models = require('../models');
 var bluebird = require('bluebird');
 
-// exports.allowCORS = function(req, res, next) {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-//   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
-//   next();
-// };
 
 var headers = {
   "access-control-allow-origin": "*",
@@ -35,6 +29,7 @@ module.exports = {
     // Insert a message into the 'messages' table.
     post: function (req, res) {
       models.messages.post({user: req.body.username, message: req.body.message, room: req.body.room});
+      sendResponse(res, 301);
     }
   },
 

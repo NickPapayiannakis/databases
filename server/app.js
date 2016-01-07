@@ -18,10 +18,6 @@ app.set("port", 20000);
 app.use(morgan('dev'));
 app.use(parser.json());
 
-app.use(function (req, res, next) {
-  console.log(req.body); // populated!
-  next();
-})
 // Set up our routes
 app.use("/classes", router)
 
