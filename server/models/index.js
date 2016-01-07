@@ -13,7 +13,6 @@ module.exports = {
 
         callback(results);
 
-        // Implement fields argument at future time.
       });
     },
 
@@ -21,8 +20,6 @@ module.exports = {
     post: function (queryArgs) {
       db.dbConnection.query('INSERT INTO messages SET ?', queryArgs, function (error, results, fields) {
         if (error){throw error};
-
-        // Implement fields argument at future time.
       });
     }
   },
@@ -35,7 +32,6 @@ module.exports = {
 
         callback(results);
 
-        // Implement fields argument at future time.
       });
     },
     // INSERT a message INTO 'users' table
@@ -43,21 +39,7 @@ module.exports = {
       db.dbConnection.query('INSERT INTO users SET ?', queryArgs, function (error, results, fields) {
         if (error){throw error};
 
-        // Implement fields argument at future time.
       });
     }
   }
 };
-
-
-// INSERT INTO employee
-//   (first, last, age, address, city, state)
-//   values ('Luke', 'Duke', 45, '2130 Boars Nest',
-//           'Hazard Co', 'Georgia');
-
-// connection.query('INSERT INTO posts SET ?', {title: 'test'}, function(err, result) {
-//   if (err) throw err;
-
-//   console.log(result.insertId);
-// });
-

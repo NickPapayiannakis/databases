@@ -11,5 +11,3 @@ var Messages = Backbone.Collection.extend({
     return response;
   }
 });
-
-//{data: {order: '-createdAt'}}

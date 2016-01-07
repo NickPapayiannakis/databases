@@ -1,8 +1,7 @@
 var app;
 $(function() {
   app = {
-//TODO: The current 'addFriend' function just adds the class 'friend'
-//to all messages sent by the user
+
     server: 'http://127.0.0.1:20000/classes/messages',
     username: 'anonymous',
     roomname: 'lobby',
@@ -62,7 +61,6 @@ $(function() {
         success: function(data) {
           console.log('chatterbox: Messages fetched');
 
-          // Don't bother if we have nothing to work with
           if (!data.results || !data.results.length) { return; }
 
           // Get the last message
@@ -121,7 +119,6 @@ $(function() {
             // Add the room to the select menu
             app.addRoom(roomname);
 
-            // Store that we've added this room already
             rooms[roomname] = true;
           }
         });
